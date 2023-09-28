@@ -1,5 +1,6 @@
 import express from "express";
 import {findRecipesByType} from "./getters/getRecipesByType.js";
+import {findRecipeByID} from "./getters/getRecipeByID.js";
 
 const PORT = 5000;
 
@@ -50,6 +51,13 @@ app.get("/recipes-by-word/:keyword", (req, res) => {
 
 app.get("/recipes-by-health/:healthLabel", (req, res) => {
     findRecipesByType("health", req.params.healthLabel)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
+app.get("/recipe-by-id/:ID", (req, res) => {
+    findRecipeByID(req.params.ID)
         .then((result) => {
             res.status(200).json(result)
         })

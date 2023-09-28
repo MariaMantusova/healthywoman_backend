@@ -1,5 +1,5 @@
 import axios from "axios";
-import {convertRecipes} from "../utils/convertFunction.js";
+import {convertRecipes} from "../utils/convertFunctions.js";
 
 async function getRecipesByType(nameOfType, type) {
     try {
