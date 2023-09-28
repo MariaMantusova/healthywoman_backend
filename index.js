@@ -48,6 +48,13 @@ app.get("/recipes-by-word/:keyword", (req, res) => {
         })
 })
 
+app.get("/recipes-by-health/:healthLabel", (req, res) => {
+    findRecipesByType("health", req.params.healthLabel)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
 app.listen(PORT, () => {
     console.log("server started on 5000 port")
 });
