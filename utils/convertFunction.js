@@ -1,8 +1,8 @@
 export function convertRecipes(recipes) {
     const convertedRecipes = [];
 
-    recipes.forEach((recipe) => {
-        recipe = recipe.recipe
+    recipes.forEach((outerRecipe) => {
+        const recipe = outerRecipe.recipe
 
         convertedRecipes.push({
             recipeName: recipe.label,
@@ -13,6 +13,7 @@ export function convertRecipes(recipes) {
             recipeCuisine: recipe.cuisineType,
             recipeMeal: recipe.mealType,
             recipeType: recipe.dishType,
+            recipeID: outerRecipe._links.self.href
         })
     })
 
