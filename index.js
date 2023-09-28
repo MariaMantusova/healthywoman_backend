@@ -1,5 +1,5 @@
 import express from "express";
-import {findRecipesByCuisine} from "./getters/getRecipesByCuisine.js";
+import {findRecipesByType} from "./getters/getRecipesByType.js";
 
 const PORT = 5000;
 
@@ -7,7 +7,28 @@ const app = express();
 app.use(express.json());
 
 app.get("/recipes-by-cuisine/:cuisine", (req, res) => {
-    findRecipesByCuisine(req.params.cuisine)
+    findRecipesByType("cuisineType", req.params.cuisine)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
+app.get("/recipes-by-meal/:mealType", (req, res) => {
+    findRecipesByType("mealType", req.params.mealType)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
+app.get("/recipes-by-diet/:diet", (req, res) => {
+    findRecipesByType("diet", req.params.diet)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
+app.get("/recipes-by-dish/:dishType", (req, res) => {
+    findRecipesByType("dishType", req.params.dishType)
         .then((result) => {
             res.status(200).json(result)
         })
