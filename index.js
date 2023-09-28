@@ -1,5 +1,5 @@
 import express from "express";
-import {findRecipesByCuisine, recipesByCuisine} from "./getters/getRecipesByCuisine.js";
+import {findRecipesByCuisine} from "./getters/getRecipesByCuisine.js";
 
 const PORT = 5000;
 
@@ -8,8 +8,8 @@ app.use(express.json());
 
 app.get("/recipes-by-cuisine/:cuisine", (req, res) => {
     findRecipesByCuisine(req.params.cuisine)
-        .then(() => {
-            res.status(200).json(recipesByCuisine)
+        .then((result) => {
+            res.status(200).json(result)
         })
 })
 
