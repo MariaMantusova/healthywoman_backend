@@ -34,6 +34,20 @@ app.get("/recipes-by-dish/:dishType", (req, res) => {
         })
 })
 
+app.get("/recipes-by-calories/:calories", (req, res) => {
+    findRecipesByType("calories", req.params.calories)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
+app.get("/recipes-by-word/:keyword", (req, res) => {
+    findRecipesByType("q", req.params.keyword)
+        .then((result) => {
+            res.status(200).json(result)
+        })
+})
+
 app.listen(PORT, () => {
     console.log("server started on 5000 port")
 });
