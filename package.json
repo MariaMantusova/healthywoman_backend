@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
@@ -19,15 +20,18 @@
   },
   "homepage": "https://github.com/MariaMantusova/healthywoman_backend#readme",
   "devDependencies": {
-    "express-winston": "^4.2.0",
-    "nodemon": "^3.0.1",
-    "winston": "^3.10.0"
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "nodemon": "^3.0.1"
   },
   "dependencies": {
     "axios": "^1.5.1",
     "celebrate": "^15.0.1",
     "express": "^4.18.2",
     "express-rate-limit": "^7.0.2",
-    "helmet": "^7.0.0"
+    "helmet": "^7.0.0",
+    "express-winston": "^4.2.0",
+    "winston": "^3.10.0"
   }
 }
