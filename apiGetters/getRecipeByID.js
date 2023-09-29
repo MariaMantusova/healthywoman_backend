@@ -6,7 +6,7 @@ async function getRecipeByID(ID) {
         const response = await axios.get(`https://api.edamam.com/api/recipes/v2/${ID}?type=public&app_id=df0dc624&app_key=c75e7ca86e23609d5ca298df3d1a481b`)
         return response.data;
     } catch (error) {
-        console.log(error)
+        throw new Error(error.code);
     }
 }
 
@@ -18,7 +18,7 @@ export async function findRecipeByID(ID) {
             result = convertOneRecipe(res);
         })
         .catch((err) => {
-            console.log(err)
+            throw new Error(err.code);
         })
 
     return result
