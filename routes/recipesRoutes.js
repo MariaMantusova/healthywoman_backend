@@ -38,7 +38,7 @@ recipesRouter.get('/recipes-by-dish/:dishType', celebrate({
 
 recipesRouter.get('/recipes-by-calories/:calories', celebrate({
   params: Joi.object().keys({
-    calories: Joi.string().min(3).max(7).regex(/^[1-9-]*$/)
+    calories: Joi.string().min(3).max(7).regex(/^[0-9]*$/)
       .required(),
   }),
 }), getRecipesByCalories);
