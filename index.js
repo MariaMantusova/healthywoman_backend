@@ -16,7 +16,8 @@ const limiter = rateLimit({
 const PORT = 5000;
 
 const allowedCors = [
-  'https://healthywoman-next.vercel.app',
+  // 'https://healthywoman-next.vercel.app',
+    "*"
 ];
 
 app.use(express.json());
